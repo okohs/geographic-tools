@@ -36,11 +36,7 @@ object Converter {
     params('latitude -> params(1))
     params('longitude -> params(2))
 
-    params.foreach { case (key, value) =>
-      val paramsToString + key + "=" + value + "&"
-    }
-
-    // TODO:最後についてしまう&を取る
+    val paramsToString = params.map { case (key, value) => s"${key}=${value}" }.mkString("&")
 
     val convertUrl = baseUrl + paramsToString
   }
