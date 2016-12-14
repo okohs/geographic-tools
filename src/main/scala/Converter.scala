@@ -32,13 +32,17 @@ object Converter {
 
   def buildConverterUrl(args: Array[String]):String = {
     val baseUrl = "http://vldb.gsi.go.jp/sokuchi/surveycalc/tky2jgd/tky2jgd.pl?"
-    var params = Map('outputType -> "json", 'sokuti -> "1", 'Place -> "1", 'latitude -> "35.6730837", 'longitude -> "139.7599029")
+    var params = Map("outputType" -> "json", "sokuti" -> "1", "Place" -> "1", "latitude" -> "35.6730837", "longitude" -> "139.7599029")
 
-    if (args(0) == "gtoj") {
-      params += ('sokuti -> "2")
+    if (args.length > 0 && args(0) == "gtoj") {
+      params += ("sokuti" -> "2")
     }
-    params += ('latitude -> args(1))
-    params += ('longitude -> args(2))
+    if (args.length > 1) {
+      params += ("latitude" -> args(1))
+    }
+    if (args.length > 2) {
+      params += ("longitude" -> args(2))
+    }
 
     val paramsToString = params.map { case (key, value) => s"${key}=${value}" }.mkString("&")
 
