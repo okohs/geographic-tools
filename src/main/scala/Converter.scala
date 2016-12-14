@@ -13,8 +13,7 @@ object Converter {
   }
 
   def convertJtoG(params: Array[String]):Array[Double] = {
-    var result: Array[Double] = null
-    result = new Array[Double](2)
+    var result: Array[Double] = new Array[Double](2)
     val convertUrl = buildConverterUrl(params)
     val result = scala.io.Source.fromURL(convertUrl).mkString
   }
