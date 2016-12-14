@@ -1,6 +1,5 @@
 #geographic-tools
 Toolkit for map relation calculation.
-(http://hogehoge.herokuapp.com)
 
 ## Current Version
 v0.0
