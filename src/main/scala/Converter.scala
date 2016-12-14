@@ -1,10 +1,10 @@
+import play.api.libs.json._
+
 object Converter {
   def main(args: Array[String]): Unit = {
     val args = Array("gtoj", "35.6703917", "139.7758458")
-    if(args(0) == "jtog"){
-      convertGtoJ(args)
-    }else if (args(0) == "gtoj"){
-      convertGtoJ(args)
+    if(args.length > 0) {
+      println(convertCoordinates(args))
     }else{
       println("your input data is wrong.")
       println("please input jtog/gtoj latitude longitude")
@@ -12,22 +12,13 @@ object Converter {
     }
   }
 
-  def convertJtoG(params: Array[String]):Array[Double] = {
-    ???
-    /*
+  def convertCoordinates(params: Array[String]): Map[String, Double] = {
     var result: Array[Double] = new Array[Double](2)
     val convertUrl = buildConverterUrl(params)
-    val result = scala.io.Source.fromURL(convertUrl).mkString
-    */
-  }
-
-  def convertGtoJ(params: Array[String]):Array[Double] = {
-    ???
-    /*
-    var result: Array[Double] = new Array[Double](2)
-    val convertUrl = buildConverterUrl(params)
-    val result = scala.io.Source.fromURL(convertUrl).mkString
-    */
+    val json = Json.parse(scala.io.Source.fromURL(convertUrl).mkString)
+    val a = (json \ "OutputData" \ "latitude").get.asInstanceOf[JsString].value
+    val b =  (json \ "OutputData" \ "longitude").get.asInstanceOf[JsString].value
+    Map("latitude" -> a.toDouble, "longitude" -> b.toDouble)
   }
 
   def buildConverterUrl(args: Array[String]):String = {
