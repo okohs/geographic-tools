@@ -2,8 +2,8 @@ import play.api.libs.json._
 
 object Converter {
   def main(args: Array[String]): Unit = {
-    val args = Array("gtoj", "35.6703917", "139.7758458")
-    if(args.length > 0) {
+    val args = Array("g2j", "35.6703917", "139.7758458")
+    if (args.length > 2 && (args(0) == "g2j" || args(0) == "j2g")) {
       println(convertCoordinates(args))
     }else{
       println("your input data is wrong.")
@@ -12,6 +12,11 @@ object Converter {
     }
   }
 
+  /**
+    * convert Geographic Coordinates
+    * @param params
+    * @return String
+    */
   def convertCoordinates(params: Array[String]): Map[String, Double] = {
     var result: Array[Double] = new Array[Double](2)
     val convertUrl = buildConverterUrl(params)
@@ -21,11 +26,16 @@ object Converter {
     Map("latitude" -> a.toDouble, "longitude" -> b.toDouble)
   }
 
-  def buildConverterUrl(args: Array[String]):String = {
-    val baseUrl = "http://vldb.gsi.go.jp/sokuchi/surveycalc/tky2jgd/tky2jgd.pl?"
-    var params = Map("outputType" -> "json", "sokuti" -> "1", "Place" -> "1")
+  /**
+    * build Convert Coordinates API URL
+    * @param args
+    * @return String
+    */
+  def buildConverterUrl(args: Array[String]): String = {
+    val baseUrl:String = "http://vldb.gsi.go.jp/sokuchi/surveycalc/tky2jgd/tky2jgd.pl?"
+    var params:Map[String, String] = Map("outputType" -> "json", "sokuti" -> "1", "Place" -> "1")
 
-    if (args.length > 0 && args(0) == "gtoj") {
+    if (args.length > 0 && args(0) == "g2j") {
       params += ("sokuti" -> "2")
     }
     if (args.length > 1) {
