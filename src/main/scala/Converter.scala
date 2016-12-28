@@ -55,4 +55,54 @@ object Converter {
 
     baseUrl + paramsToString
   }
+
+  /**
+    * 度十進と度分秒を変換する
+    *
+    * @param args
+    * @return
+    */
+  def convertDegree(args: Array[String]): Map[String, String] = {
+    val convertMode:String = args(0)
+    val baseDegree:String = args(1)
+
+    var result:Map[String, String] = Map("DMS" -> baseDegree, "DEG" -> baseDegree)
+    if (args.length > 0 && convertMode == "dms2deg"){
+      var convertResult:String = convertDmsToDeg(baseDegree)
+      result += ("DMS" -> convertResult)
+    }else if (args.length > 0 && convertMode == "deg2dms"){
+      var convertResult:String =  convertDegToDms(baseDegree)
+      result += ("DEG" -> convertResult)
+    }
+
+    result
+  }
+
+  /**
+    * Convert Degree DEG format(139.691749) to DMS format (139/41/30.3)
+    * @param baseDegree
+    * @return String
+    */
+  def convertDegToDms(baseDegree:String):String = {
+    val degreeArray:Array[String] = baseDegree.split("/")
+    val convertResult:Double = degreeArray(0).toDouble +(degreeArray(1).toDouble / 60) + (degreeArray(2).toDouble / 60 / 60)
+
+    convertResult.toString
+  }
+
+  /**
+    * Convert Degree DMS format (139/41/30.3) to DEG format (139.691749)
+    * @param baseDegree
+    * @return String
+    */
+  def convertDmsToDeg(baseDegree: String):String = {
+    val dmsDegree:Double = baseDegree.toDouble
+
+    val degree:Double = Math.floor(dmsDegree)
+    val minute:Double = Math.floor(degree*60)
+    val second:Double = Math.floor(minute*60)
+
+    val convertResult:String = degree.toString + "/" + minute.toString + "/" + second.toString
+    convertResult
+  }
 }

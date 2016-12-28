@@ -2,7 +2,7 @@
 Toolkit for map relation calculation.
 
 ## Current Version
-v1.0
+v1.5
 
 ## Feature
 ### v0.0
