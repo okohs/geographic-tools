@@ -5,10 +5,16 @@ object Converter {
     val args = Array("g2j", "35.6703917", "139.7758458")
     if (args.length > 2 && (args(0) == "g2j" || args(0) == "j2g")) {
       println(convertCoordinates(args))
+    }else if(args.length > 1 && (args(0) == "dms2deg" || args(0) == "deg2dms")){
+      println(convertDegree(args))
     }else{
-      println("your input data is wrong.")
-      println("please input jtog/gtoj latitude longitude")
-      println("'jtog' means converting Japanese geographic coordinates to Global geographic coordinates.")
+      println("your input data is wrong.please input following parameter.")
+      println("Case1. convert latitude & longitude")
+      println("  <j2g/g2j> latitude longitude")
+      println("  'j2g' means converting Japanese geographic coordinates to Global geographic coordinates.")
+      println("Case2. convert degree")
+      println("  <dms2deg/deg2dms> degree")
+      println("  'dms2deg' means converting degree from DMS format (139/41/30.3) to DEG format (139.691749).")
     }
   }
 
