@@ -87,10 +87,14 @@ object Converter {
     * @return String
     */
   def convertDegToDms(baseDegree:String):String = {
-    val degreeArray:Array[String] = baseDegree.split("/")
-    val convertResult:Double = degreeArray(0).toDouble +(degreeArray(1).toDouble / 60) + (degreeArray(2).toDouble / 60 / 60)
+    val dmsDegree:Double = baseDegree.toDouble
 
-    convertResult.toString
+    val degree:Double = Math.floor(dmsDegree)
+    val minute:Double = Math.floor((dmsDegree - degree) * 60)
+    val second:Double = Math.floor((((dmsDegree - degree) * 60) - minute) * 60)
+
+    val convertResult:String = degree.toInt.toString + "/" + minute.toInt.toString + "/" + second.toString
+    convertResult
   }
 
   /**
@@ -99,13 +103,15 @@ object Converter {
     * @return String
     */
   def convertDmsToDeg(baseDegree: String):String = {
-    val dmsDegree:Double = baseDegree.toDouble
+    val degreeArray:Array[String] = baseDegree.split("/")
 
-    val degree:Double = Math.floor(dmsDegree)
-    val minute:Double = Math.floor(degree*60)
-    val second:Double = Math.floor(minute*60)
+    val degree:Double = degreeArray(0).toDouble
+    val minute:Double = degreeArray(1).toDouble / 60
+    val second:Double = degreeArray(2).toDouble / 60 / 60
 
-    val convertResult:String = degree.toString + "/" + minute.toString + "/" + second.toString
-    convertResult
+    var convertResult:Double = degree + minute + second
+
+    convertResult.toString
+
   }
 }
