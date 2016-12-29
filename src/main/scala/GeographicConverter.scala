@@ -76,11 +76,9 @@ class GeographicConverter {
 
     var result: Map[String, String] = Map("DMS" -> baseDegree, "DEG" -> baseDegree)
     if (args.length > 0 && convertMode == "dms2deg") {
-      var convertResult: String = convertDmsToDeg(baseDegree)
-      result += ("DMS" -> convertResult)
+      result += ("DMS" -> convertDmsToDeg(baseDegree))
     } else if (args.length > 0 && convertMode == "deg2dms") {
-      var convertResult: String = convertDegToDms(baseDegree)
-      result += ("DEG" -> convertResult)
+      result += ("DEG" -> convertDegToDms(baseDegree))
     }
 
     result
