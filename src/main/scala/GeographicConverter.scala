@@ -1,6 +1,15 @@
 import play.api.libs.json._
 
-object Converter {
+/**
+  * Geographic Tool 1.Converter
+  *
+  * This converter has following 2 features.
+  * Feature 1. Convert latitude & longitude
+  *   Convert latitude and longitude geographic coordinates ( Japanese / Global )
+  * Feature 2. Convert Degree
+  *   Convert degree format ( DMS (139/41/30.3) / DEG (139.691749) )
+  */
+object GeographicConverter {
   def main(args: Array[String]): Unit = {
     //    val args = Array("j2g","35.667153", "139.779080")
     //    val args = Array("g2j","35.670392", "139.775846")
