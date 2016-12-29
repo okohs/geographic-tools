@@ -11,10 +11,6 @@ import play.api.libs.json._
   */
 class GeographicConverter {
   def main(args: Array[String]): Unit = {
-    //    val args = Array("j2g","35.667153", "139.779080")
-    //    val args = Array("g2j","35.670392", "139.775846")
-    //    val args = Array("dms2deg", "139/41/30.3")
-    //    val args = Array("deg2dms", "139.691749")
     if (args.length > 2 && (args(0) == "g2j" || args(0) == "j2g")) {
       println(convertCoordinates(args))
     } else if (args.length > 1 && (args(0) == "dms2deg" || args(0) == "deg2dms")) {
