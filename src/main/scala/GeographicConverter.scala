@@ -97,9 +97,7 @@ class GeographicConverter {
     val minute = Math.floor((dmsDegree - degree) * 60)
     val second = Math.floor((((dmsDegree - degree) * 60) - minute) * 60)
 
-    val convertResult: String = degree.toInt.toString + "/" + minute.toInt.toString + "/" + second.toString
-
-    convertResult
+    s"${degree.toInt}/${minute.toInt}/${second}"
   }
 
   /**
