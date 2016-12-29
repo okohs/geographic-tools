@@ -33,7 +33,6 @@ class GeographicConverter {
     * @return String
     */
   def convertCoordinates(params: Array[String]): Map[String, Double] = {
-    var result: Array[Double] = new Array[Double](2)
     val convertUrl = buildConverterUrl(params)
     val json = Json.parse(scala.io.Source.fromURL(convertUrl).mkString)
     val a = (json \ "OutputData" \ "latitude").get.asInstanceOf[JsString].value
