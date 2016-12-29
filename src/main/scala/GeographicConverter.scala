@@ -113,8 +113,6 @@ class GeographicConverter {
     val minute= degreeArray(1).toDouble / 60
     val second= degreeArray(2).toDouble / 60 / 60
 
-    var convertResult= degree + minute + second
-
-    convertResult.toString
+    s"${degree + minute + second}"
   }
 }
