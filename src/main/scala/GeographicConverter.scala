@@ -93,9 +93,9 @@ class GeographicConverter {
   def convertDegToDms(baseDegree: String): String = {
     val dmsDegree: Double = baseDegree.toDouble
 
-    val degree: Double = Math.floor(dmsDegree)
-    val minute: Double = Math.floor((dmsDegree - degree) * 60)
-    val second: Double = Math.floor((((dmsDegree - degree) * 60) - minute) * 60)
+    val degree = Math.floor(dmsDegree)
+    val minute = Math.floor((dmsDegree - degree) * 60)
+    val second = Math.floor((((dmsDegree - degree) * 60) - minute) * 60)
 
     val convertResult: String = degree.toInt.toString + "/" + minute.toInt.toString + "/" + second.toString
 
@@ -111,11 +111,11 @@ class GeographicConverter {
   def convertDmsToDeg(baseDegree: String): String = {
     val degreeArray: Array[String] = baseDegree.split("/")
 
-    val degree: Double = degreeArray(0).toDouble
-    val minute: Double = degreeArray(1).toDouble / 60
-    val second: Double = degreeArray(2).toDouble / 60 / 60
+    val degree= degreeArray(0).toDouble
+    val minute= degreeArray(1).toDouble / 60
+    val second= degreeArray(2).toDouble / 60 / 60
 
-    var convertResult: Double = degree + minute + second
+    var convertResult= degree + minute + second
 
     convertResult.toString
   }
