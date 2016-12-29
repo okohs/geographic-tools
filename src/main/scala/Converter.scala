@@ -60,7 +60,7 @@ object Converter {
   }
 
   /**
-    * 度十進と度分秒を変換する
+    * Convert Degree Format (DEG/DMS)
     *
     * @param args
     * @return
