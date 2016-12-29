@@ -14,7 +14,7 @@ object Converter {
       println("your input data is wrong.please input following parameter.")
       println("Case1. convert latitude & longitude")
       println("  <j2g/g2j> latitude longitude")
-      println("  'j2g' means converting Japanese geographic coordinates to Global geographic coordinates.")
+      println("  'j2g' means converting latitude and longitude from Japanese geographic coordinates to Global geographic coordinates.")
       println("Case2. convert degree")
       println("  <dms2deg/deg2dms> degree")
       println("  'dms2deg' means converting degree from DMS format (139/41/30.3) to DEG format (139.691749).")
