@@ -1,4 +1,4 @@
-name := "hello-scala-2_11"
+name := "geographic-tools"
 
 version := "1.0"
 
