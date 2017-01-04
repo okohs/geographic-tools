@@ -22,7 +22,7 @@ v1.5
 - Can export tsv instead of display on application.
 
 ### v3.0
-- Write test code
+- change from tool to API
 
 ## Configuration
 - Play Framework 2.5.10
