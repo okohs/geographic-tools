@@ -16,12 +16,6 @@ v1.5
 - Convert the entered geographic coordinates from degrees,minutes,seconds to decimal degrees.
 
 ### v2.0
-- Can import tsv instead of enter geographic coordinates manually.
-
-### v2.5
-- Can export tsv instead of display on application.
-
-### v3.0
 - change from tool to API
 
 ## Configuration
