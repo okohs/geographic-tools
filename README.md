@@ -8,14 +8,14 @@ v1.5
 ### v0.0
 - Write README.md,
 
-### v1.0
+### v0.1
 - Convert the entered geographic coordinates from Japanese datum to world geodetic.
 - Convert the entered geographic coordinates from world geodetic to Japanese datum.
 
-### v1.5
+### v0.2
 - Convert the entered geographic coordinates from degrees,minutes,seconds to decimal degrees.
 
-### v2.0
+### v1.0
 - change from tool to API
 
 ## Configuration
